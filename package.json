@@ -1,0 +1,17 @@
+{
+  "name": "clarity-parser",
+  "version": "1.0.0",
+  "description": "To write a Node.js application that analyzes Clarity code and determines if it's \"good\" or potentially malicious (i.e., scam code), you will need to perform code analysis",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "clarity-parser"
+  ],
+  "author": "idk",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}
