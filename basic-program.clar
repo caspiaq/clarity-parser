@@ -10,3 +10,17 @@
         (stx-transfer? amount tx-sender (as-contract tx-sender))
     )
 )
+
+(define-public (withdraw (amount uint))
+    (let ((current-deposit (get-total-deposit tx-sender)))
+        (if (<= amount current-deposit)
+            (begin
+                ;; Update deposit balance after withdrawal
+                (map-set deposits tx-sender (- current-deposit amount))
+                ;; Transfer the withdrawn amount back to the user
+                (stx-transfer? amount (as-contract tx-sender) tx-sender)
+            )
+            (err u100) ;; Return an error code if the user tries to withdraw more than their balance
+        )
+    )
+)
